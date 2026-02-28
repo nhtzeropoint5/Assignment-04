@@ -1,17 +1,3 @@
-function deduct(id) {
-const num = document.getElementById(id).innerText;
-const newValue = Number(num) - 1;
-return newValue;
-}
-
-
-
-
-function adder(id){
-const num = document.getElementById(id).innerText;
-const newValue = Number(num) + 1;
-return newValue;
-}
 
 
 // function pageLoader(id){
