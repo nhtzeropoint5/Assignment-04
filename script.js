@@ -153,10 +153,14 @@ if (parentId === "Job-container-rej"){ deduct("tab-3"); }
 // });
 
 
-function showOnly(id){
+function showOnly(id, id1){
     const home = document.getElementById('card-container-home');
     const interview = document.getElementById('Job-container-int');
     const rejected = document.getElementById('Job-container-rej');
+
+    const btn1 = document.getElementById('home-page');
+    const btn2 = document.getElementById('interview-page');
+    const btn3 = document.getElementById('reject-page');
 
     const txtN = document.getElementById('min-num');
     const txt = document.getElementById('txt-cng');
@@ -167,10 +171,14 @@ function showOnly(id){
 
 
     home.classList.add('hidden');
+    btn1.classList.remove('btn-active');
     interview.classList.add('hidden');
+    btn2.classList.remove('btn-active');
     rejected.classList.add('hidden');
+    btn3.classList.remove('btn-active');
 
     document.getElementById(id).classList.remove('hidden');
+    document.getElementById(id1).classList.add('btn-active');
 
 
     if (id === 'card-container-home') {
