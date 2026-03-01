@@ -46,10 +46,17 @@ document.getElementById("Job-container").addEventListener("click", function (eve
   const dlt = event.target.closest(".btn-dlt");
 
 if (dlt){
-if (parentId === "card-container-home") deduct("tab-1");
-if (parentId === "Job-container-int") deduct("tab-2");
-if (parentId === "Job-container-rej") deduct("tab-3");
+    const jC = document.getElementById('tab-1');
+    const txN = document.getElementById('min-num');
+if (parentId === "card-container-home")
+  {
+    deduct("tab-1");
+    txN.innerText = jC.innerText;
 
+  } 
+if (parentId === "Job-container-int"){ deduct("tab-2"); }
+if (parentId === "Job-container-rej"){ deduct("tab-3"); }
+    
     card.remove();
     return;
   }
@@ -151,12 +158,40 @@ function showOnly(id){
     const interview = document.getElementById('Job-container-int');
     const rejected = document.getElementById('Job-container-rej');
 
+    const txtN = document.getElementById('min-num');
+    const txt = document.getElementById('txt-cng');
+
+    const jobC = document.getElementById('tab-1');
+    const intC = document.getElementById('tab-2');
+    const rejC = document.getElementById('tab-3');
+
+
     home.classList.add('hidden');
     interview.classList.add('hidden');
     rejected.classList.add('hidden');
 
     document.getElementById(id).classList.remove('hidden');
+
+
+    if (id === 'card-container-home') {
+        txtN.innerText = jobC.innerText;
+        txt.innerText = " Jobs";
+    }
+    else if (id === 'Job-container-int') {
+        txtN.innerText = intC.innerText;
+        txt.innerText = " of 8 Jobs";
+    } 
+    else if (id === 'Job-container-rej') {
+        txtN.innerText = rejC.innerText;
+        txt.innerText = " of 8 Jobs";
+    }
+  
+
+    //card-container-home Job-container-int Job-container-rej
 }
+
+
+
 
 
 function updateStatus(card, type) {
